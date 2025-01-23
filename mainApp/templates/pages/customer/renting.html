@@ -1,0 +1,49 @@
+{% extends "pages/customer/base_customer.html" %}
+{% load static %}
+
+{% block title %}
+Renting
+{% endblock title %}
+
+{% block sidebar_content %}
+
+<div class="table-responsive table-styles text-center">
+    {% if vehicle %}
+    <table class="table table-dark table-striped table-bordered align-middle caption-top">
+        <caption><h1 style="color: white; font-weight: 600 !important; font-variant: small-caps;">Currently Renting</h1></caption>
+        
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Category</th>
+                <th scope="col">Image</th>
+                <th scope="col">Owned By</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in vehicle %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.vehicle_model}}</td>
+                <td>{{i.rent_price}}</td>
+                <td>{{i.category}}</td>
+                <td><img src="{{i.image.url}}" class="register-image" alt=""></td>
+                <td>@{{i.uploaded_by}}</td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+        {% else %}
+        <h1 style="color: white; font-weight: 600 !important; font-variant: small-caps;">You Are Currently Not Renting Anything</h1>
+        {% endif %}
+    </table>
+</div>
+
+
+
+
+
+{% endblock sidebar_content %}

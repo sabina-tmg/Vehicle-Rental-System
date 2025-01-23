@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>This is admin home</h1>
+<button><a href="{% url 'logout' %}">LogOut</a></button>
+{% endblock content %}
+
+{% block footer-js %}
+{% if messages %}
+{% for message in messages %}
+<script>
+  alertify.set('notifier', 'position', 'top-center');
+  alertify.success('{{message}}!');
+</script>
+{% endfor %}
+{% endif %}
+{% endblock footer-js %}

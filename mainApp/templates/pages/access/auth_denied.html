@@ -1,0 +1,8 @@
+{% extends "pages/access/access_denied.html" %}
+
+{% block description %}
+<div class="back_arrow" style="margin-top: 20px;">
+    <a href="{{request.META.HTTP_REFERER}}" style="color: white;"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+</div>
+Sorry! You do not have permission to view this page!
+{% endblock description %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+About
+{% endblock title %}
+
+{% block content %}
+
+<!-- Introduction section -->
+<div class="container introduction">
+  <div class="row" data-aos="fade-up" data-aos-duration="500">
+    <div class="col-md-6">
+      <p class="english-title">WELCOME TO VEHICLE GO!</p>
+      <p>At Vehicle Go, we believe in empowering exploration. We're a passionate
+        team dedicated to making car rentals effortless and accessible. Our
+        user-friendly web application simplifies the rental process, allowing you to
+        find the perfect vehicle for your adventure in just a few clicks. From weekend
+        getaways to cross-country road trips, we're here to get you on the road.</p>
+      <button type="button" class="btn learn-more">learn more</button>
+    </div>
+    <div class="col-md-6 about-image">
+      <img src="{% static 'images/mine.avif' %}" class="img-fluid showing_car" alt="using phone">
+    </div>
+  </div>
+</div>
+<!-- Introduction section ends -->
+
+
+
+
+{% endblock content %}

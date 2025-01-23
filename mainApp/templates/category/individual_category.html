@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{category}}
+{% endblock title %}
+
+{% block content %}
+
+<div class="rent_now">
+    <div class="container" style="margin-bottom: 70px;">
+        
+        <h1 class="all_vehicles">{{category}}</h1>
+        
+        
+        <div class="row">
+            {% for vehicle in vehicles %}
+            <div class="col-lg-4 col-sm-12 col-md-4">
+                <div class="box_main_1" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="vehicle_image">
+                            <img src="{{ vehicle.image.url }}">
+                    </div>
+                    <h3 class="vehicle_model">{{vehicle.vehicle_model}}</h3>
+                    
+                    <div class="details"><a href="{% url 'vehicle' vehicle.id  %}">Details</a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+
+

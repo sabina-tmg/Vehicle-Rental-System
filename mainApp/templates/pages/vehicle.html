@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container" style="margin-bottom: 70px;">
+  <div class="back_arrow">
+    <a href="{{request.META.HTTP_REFERER}}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+  </div>
+
+  <br />
+
+
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ vehicle.image.url }}" class="img-fluid rounded-start" alt="...">
+        <small>Owned by: @{{vehicle.uploaded_by}}</small>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="vehicle_model_1 vehicle_model">{{ vehicle.vehicle_model }}</h5>
+          <br />
+          <p class="card-text justified">{{ vehicle.description }}</p>
+
+
+          <br /><br />
+          {% if request.user.is_customer %}
+          <a href="{% url 'rent_page' vehicle.id %}"><button type="button" class="btn learn-more">Rent</button></a>
+          {% else %}
+          <a href="/customer_needed/"><button type="button" class="btn learn-more">Rent</button></a>
+          {% endif %}
+          <h4 style="float: right;"><strong>RS {{vehicle.rent_price}}</strong></h4>
+          <br>
+          <br>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1>Reviews</h1>
+
+  <div class="row">
+    {% if reviews %}
+    {% for review in reviews %}
+    <div class="col-md-3">
+      <div class="card mb-3 review-card" style="max-width: 18rem;">
+        <div class="card-header"><strong>@{{ review.user.username }}</strong> says:</div>
+        <div class="card-body">
+          <h5 class="title">
+            {% for i in range %}
+            <i class="fa {% if review.rating >= i %}fa-star{% else %}fa-star-o{% endif %}"
+              style="color: gold !important;"></i>
+            {% endfor %}
+          </h5>
+          <p class="card-text">{{ review.comment }} </p>
+          <small>({{ review.created_at }})</small>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+    {%else%}
+    <h5>No reviews yet</h5>
+    {% endif %}
+  </div>
+
+    {% if request.user.is_customer %}
+    <a class="btn learn-more" data-bs-toggle="collapse" href="#review" role="button" aria-expanded="false"
+      aria-controls="collapseExample">
+      Add a Review
+    </a>
+    {% else %}
+    <a class="btn learn-more" data-bs-toggle="collapse" href="#review1" role="button" aria-expanded="false"
+      aria-controls="collapseExample">
+      Add a Review
+    </a>
+
+    {% endif %}
+
+  <div class="collapse" id="review">
+    <div class="card card-body">
+      <div class="row">
+        <form class="form" method="POST">
+          {% csrf_token %}
+
+          <p class="title">{{ vehicle.vehicle_model }} </p>
+          {{ form.as_p }}
+
+          <button class="btn learn-more" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="collapse" id="review1">
+    <div class="card card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <small>You must login as a customer to leave a review.</small>
+          <br>
+        <a class="btn learn-more" href="/login/">LogIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

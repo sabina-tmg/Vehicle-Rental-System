@@ -1,0 +1,472 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+
+/* Navbar section */
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+
+/* For the gradient effect */
+.navbar-home{
+    background-image: linear-gradient(to right, #133c63, #5896d1);
+}
+
+/* Changing the icon color. I've used icon from fontawesome instead of bootstrap default icon.
+ !important used for overriding the bootstrap default */
+.fa-bars {
+    color: white;
+    font-size: 30px !important;
+}
+
+/* Removing the default outline of the navbar icon in small screen */
+.navbar-toggler {
+    outline: none !important;
+}
+
+/* Giving paddings between the texts */
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+/* Changing the font color of the navbar texts */
+.navbar-nav li a {
+    color: white;
+    font-weight: 600;
+}
+
+.nav-link{
+    float: right;
+}
+
+
+.dropdown-menu{
+    background-color: #133c63;
+    border:2px solid #000;
+    position: absolute !important;
+
+}
+
+.search-button{
+    border: 2px solid #000 !important;
+}
+
+
+.dropdown-divider{
+    border: 1px solid white !important;
+}
+
+.brand-title {
+    color: white;
+    /* margin-top: 15px; */
+}
+
+/* Line between the english and nepali brand names near logo */
+
+.english-brand {
+    border-bottom: 3px solid #cdab15;
+}
+
+
+/* Introduction section */
+
+.introduction{
+    margin: 50px auto;
+}
+
+.showing_car{
+    border-radius: 50%;
+}
+
+/* Texts part */
+.english-title {
+    font-size: 35px;
+    font-weight: 600;
+    margin-top: 10%;
+    color: #5896d1;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .title-col {
+        display: flex;
+    }
+
+    .footer-logo-image {
+        height: auto;
+        width: 100%;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title-col {
+        display: flex;
+    }
+
+    .footer-logo-image {
+        height: 200px;
+        width: 200px;
+        
+    }
+
+    .brand-title{
+        display: none !important;
+    }
+    .details_container{
+        padding: 0px;
+      }
+
+
+
+}
+
+
+/* footer section */
+
+
+/* For the gradient effect */
+#footer {
+    background-image: linear-gradient(to bottom, #133c63,#5896d1,#030e17);
+    color: #fff;
+}
+
+#footer h3::after {
+    content: '';
+    background-color: #fff;
+    height: 3px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+#footer .fa {
+    font-size: 25px;
+    margin-right: 1px;
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    border-radius: 30%;
+    border: 3px solid black;
+    color: white;
+    background-color: #648EB5 !important;
+    margin-top: 10px;
+}
+
+.footer-contact {
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.contact-info {
+    margin-top: 20px;
+
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-icon {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 30%;
+    border: 3px solid black;
+    color: white;
+    background-color: #648EB5 !important;
+}
+
+.email-box {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+hr {
+    background-color: #fff;
+    height: 5px;
+}
+
+.btn {
+    border: 3px solid black;
+    background-color: #49a1f4;
+    font-variant: small-caps;
+}
+.btn:hover {
+    border: 3px solid black;
+    color: #000;
+    background-color: #9DC1E3 !important;
+    transform: translateY(5px);
+}
+
+.card-img-wrapper {
+    position: relative;
+}
+
+
+/* Rent Now section */
+.rent_now {
+    background-image: linear-gradient(rgba(35, 36, 39, 0.8), rgba(33, 33, 37, 0.6)), url(../images/vehicles.jpg);
+    background-color: #4a4848;
+    width: 100%;
+    float: left;
+    height: auto;
+    padding-bottom: 50px;
+    background-attachment: fixed;
+}
+
+.rent_title {
+    width: 100%;
+    float: left;
+    color: #5896d1;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.rent_text {
+    font-size: 15px;
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: white;
+    margin: 0px;
+    text-align: center;
+}
+
+
+.vehicle_icon {
+    width: 200px;
+    height: auto;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.vehicle_icon img {
+    width: 150px;
+    min-height: 150px;
+}
+.vehicle_image img{
+    width: 100%;
+    height: 300px;
+    padding: 5px;
+}
+.box_main .vehicle_icon .image_2 {
+    display: none;
+}
+
+.box_main:hover .vehicle_icon .image_2 {
+    display: block;
+}
+
+.box_main:hover .vehicle_icon .image_1 {
+    display: none;
+}
+
+.box_main:hover {
+    background-color: #ffffff;
+}
+
+.box_main ,.box_main_1{
+    width: 100%;
+    height: max-content;
+    background-color: #5896d1;
+    padding: 30px 0px 30px 0px;
+    box-shadow: 0px 0px 18px -6px;
+}
+
+.box_main_1{
+    padding: 0px !important;
+    box-shadow: 0 8px 20px 10px #5896d14d;
+}
+
+
+
+.box_main:hover .decorate_text {
+    color: #000;
+}
+
+.box_main:hover .title_text {
+    color: #000;
+}
+
+.box_main:hover .readmore_bt {
+    display: block;
+}
+
+
+.rent_now_2 {
+    width: 100%;
+    float: left;
+    padding-top: 50px;
+}
+
+.decorate_text {
+    width: 100%;
+    font-size: 28px;
+    color: #ffffff;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.title_text {
+    width: 100%;
+    font-size: 14px;
+    color: #ffffff;
+    margin: 0px;
+    text-align: center;
+}
+
+.readmore_bt {
+    width: 175px;
+    padding-top: 40px;
+    margin: 0 auto;
+    display: flex;
+    display: none;
+    padding-bottom: 40px;
+}
+
+.readmore_bt a{
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    background-color: #070603;
+    color: #ffffff;
+    border: 3px solid #5896d1;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+    font-variant: small-caps;
+}
+.details{
+    padding: 5px;
+}
+.details a{
+    padding: 5px;
+    font-size: 18px;
+    background-color: #0d2234 ;
+    text-align: center;
+    border: 3px solid #fff;
+    margin: 0 auto;
+    display: block;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-variant: small-caps;
+}
+.details a:hover{
+    background-color: #fff;
+    color: #0d2234 ;
+    border: 3px solid #0d2234 ;
+}
+
+.readmore_bt a:hover {
+    color: #000;
+    background-color: #9DC1E3;
+    border: 3px solid #070603;
+}
+
+.row{
+    padding: 10px;
+}
+
+.card-img-top{
+    height: 250px;
+    width: auto;
+}
+
+.card-title{
+    font-size: xx-large;
+    font-weight: 600;
+    width:40px;
+    border: 3px solid #000;
+    background-color: #5896d1;
+    border-radius: 50%;
+    margin-left: 40%;
+    margin-top: 5px;
+}
+.work-title{
+    font-size: 35px;
+    margin: 10% 0px 20px 0px;
+    color: #5896d1;
+    font-weight: 600;
+}
+.working-card{
+    box-shadow: 0 8px 20px 10px #5896d14d;
+    border: none !important;
+    margin-bottom: 20px;
+}
+
+.all_vehicles{
+    color: #5896d1; 
+    font-size: 35px; 
+    font-weight: 600; 
+    margin-top: 70px;
+    margin-bottom: 20px !important;
+    padding-left: 15px;
+}
+
+.vehicle_model{
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    padding: 5px;
+}
+
+.vehicle_model_1{
+    color: #000 !important;
+}
+.back_arrow{
+    padding: 20px auto;
+    margin-top: 30px !important;
+}
+.back_arrow a{
+    text-decoration: none;
+    color: #000;
+    font-size: 30px;
+}
+
+.back_arrow a:hover{
+    color: #49a1f4;
+}
+
+#dealer-home{
+    background-color: #0d2234  !important;
+}
+
+
+.active{
+    border: 3px solid #000 !important;
+    border-radius: 15%;
+    background-color: #9DC1E3;
+    color: #000 !important;
+    box-shadow: 0px 0px 20px #fff; 
+}
+
+.nav-item:hover{
+    transform: translateY(-5px);
+    color: white !important;
+}
+
+.review-card{
+    background-color: #133c63;
+    color: white;
+    box-shadow: 0 0 20px 10px rgba(12, 12, 12, 0.7);
+}

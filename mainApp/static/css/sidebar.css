@@ -1,0 +1,109 @@
+#nav-bar {
+  position:static !important;
+  top: 0;
+  z-index: 10;
+}
+
+.main-container{
+  display:flex;
+}
+
+.sidebar_content {
+  margin-left: 30%;
+    padding: 1px 16px;
+}
+
+.active-dashboard{
+  border: 3px solid #000 !important;
+  border-radius: 15%;
+  background-color: #9DC1E3;
+  color: #000 !important;
+}
+
+@media screen and (max-width: 700px){
+  .sidebar_content{
+    margin-left: 0;
+  }
+}
+
+/* The sidebar menu */
+.sidenav {
+    width: 190px; /* Set the width of the sidebar */
+    height: auto;
+    background-image: radial-gradient(ellipse at left, #185389,#030e17, #214465);
+    padding-top: 20px;
+  }
+
+  .image{
+    
+    margin-left: 25%;
+    position: relative;
+    width: 50%;
+    margin-bottom: 50px;
+  }
+
+  .image img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    opacity: 1;
+    display: block;
+    /* width: 100%; */
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #ffffff;
+    display: block;
+    font-weight: 600;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  
+.details_container{
+  color: white !important;
+  background-color: #0d2234 !important;
+  margin: 80px auto 80px auto;
+  border-radius: 10%;
+  padding: 80px;
+  box-shadow: 0 0 10px 10px rgba(128, 128, 130, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .details_container{
+      margin: 0px;
+    }
+}
+
+.detail_image{
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}

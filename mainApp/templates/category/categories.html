@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Categories
+{% endblock title %}
+
+{% block content %}
+
+<div class="rent_now">
+    <div class="container">
+        <h1 class="all_vehicles">All Vehicle Categories</h1>
+        
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-lg-4 col-sm-12 col-md-4">
+                <div class="box_main" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="vehicle_icon">
+
+                    </div>
+                    <h3 class="decorate_text">{{category.name}}</h3>
+                    <div class="readmore_bt"><a href="{% url 'individual_category' category %}">View</a></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

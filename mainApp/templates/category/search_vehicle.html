@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Vechicles
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="back_arrow">
+        <a href="{{request.META.HTTP_REFERER}}"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+    </div>
+
+    <br />
+    <div class="row">
+        <p>Results matching your search: </p>
+            {% if query %}
+            {% for vehicle in query %}
+            <div class="col-md-6">
+                <div class="card mb-3 " style="height: 300px; border: 2px solid black !important;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ vehicle.image.url }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="vehicle_model_1 vehicle_model">{{ vehicle.vehicle_model }}</h5>
+                                <br />
+                                <p class="card-text justified">{{ vehicle.description }}</p>
+
+
+                                <br /><br />
+
+                                {% if request.user.is_customer %}
+                                <a href="/customer_details/"><button type="button" class="btn learn-more">Rent</button></a>
+                                {% else %}
+                                <a href="/customer_needed/"><button type="button" class="btn learn-more">Rent</button></a>
+                                {% endif %}
+
+                                <a href="{% url 'vehicle' vehicle.id  %}"><button type="button"
+                                        class="btn learn-more">Details</button></a>
+                                <h4 style="float: right;"><strong>RS {{vehicle.rent_price}}</strong></h4>
+                                <br>
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+
+    </div>
+</div>
+{% endblock content %}

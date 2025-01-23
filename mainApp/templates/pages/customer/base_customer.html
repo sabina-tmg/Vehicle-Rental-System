@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block stylesheet %}
+
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+
+
+
+<div class="main-container">
+    <div class="sidenav">
+        <div class="elements text-center">
+          <div class="image">
+            {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="detail_image" style="max-width: 200px;">
+            {% else %}
+            <p><img src="{% static 'images/pfp.jpeg' %}" alt="" class="detail_image"> </p>
+              {% endif %}
+            
+      
+                  <p style="color: white !important; ">@{{ user.username }}</p> </p>
+              
+          </div>
+          <a href="{% url 'customer_details' %}" class="{% if '/customer_details/' in request.path %}
+          active-dashboard
+      {% endif %} ">DETAILS</a>
+          <a href="{% url 'renting' %}" class="{% if '/renting/' in request.path %}
+          active-dashboard
+      {% endif %} ">RENTING</a>
+          <a href="{% url 'logout' %}"><button type="button" class="btn btn-primary">SignOut</button></a>
+        </div>
+      </div>
+      
+      
+      
+          {% block sidebar_content %}
+          {% endblock sidebar_content %}
+      
+</div>
+
+{% endblock content %}
+  
+
+
+
+{% block footer-js %}
+{% if messages %}
+{% for message in messages %}
+<script>
+  alertify.set('notifier', 'position', 'top-center');
+  alertify.success('{{message}}');
+</script>
+{% endfor %}
+{% endif %}
+{% endblock footer-js %}

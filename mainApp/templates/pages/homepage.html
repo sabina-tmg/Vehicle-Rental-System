@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+
+<!-- Introduction section -->
+<div class="container introduction">
+  <div class="row">
+    <div class="col-md-6">
+      <p class="english-title" data-aos="fade-up" data-aos-duration="500">WELCOME TO VEHICLE GO!</p>
+      <p data-aos="fade-up" data-aos-duration="500">At Vehicle Go, we believe in empowering exploration. We're a passionate
+        team dedicated to making car rentals effortless and accessible. Our
+        user-friendly web application simplifies the rental process, allowing you to
+        find the perfect vehicle for your adventure in just a few clicks. From weekend
+        getaways to cross-country road trips, we're here to get you on the road.</p>
+      <a href="/about/"><button type="button" class="btn learn-more" data-aos="fade-up" data-aos-duration="500">learn more</button></a>
+    </div>
+    <div class="col-md-6 about-image">
+      <img src="{% static 'images/pop.avif' %}" class="img-fluid showing_car" alt="cars" data-aos="fade-up" data-aos-duration="500">
+    </div>
+  </div>
+</div>
+<!-- Introduction section ends -->
+
+  <!-- rent now section start -->
+  <div class="rent_now">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+             <h1 class="rent_title" data-aos="fade-up" data-aos-duration="1000"> RENT NOW</h1>
+             <p class="rent_text" data-aos="fade-up" data-aos-duration="1000">You can choose from 3 different rental categories!</p>
+          </div>
+       </div>
+       <div class="rent_now_2">
+          <div class="row">
+             <div class="col-lg-4 col-sm-12 col-md-4">
+                <div class="box_main" data-aos="fade-up" data-aos-duration="1000">
+                   <div class="vehicle_icon">
+                      <img src="{% static 'images/bike-rent-1.png' %}" class="image_1">
+                      <img src="{% static 'images/bike-rent.png' %}" class="image_2">
+                   </div> 
+                   <h3 class="decorate_text">Motorcycle</h3>
+                   <div class="readmore_bt"><a href="{% url 'individual_category' 'Motorbike' %}">View</a></div>
+                   
+                </div>
+             </div>
+             <div class="col-lg-4 col-sm-12 col-md-4">
+                <div class="box_main" data-aos="fade-up" data-aos-duration="1000">
+                   <div class="vehicle_icon">
+                      <img src="{% static 'images/cycle-rent-1.png' %}" class="image_1">
+                      <img src="{% static 'images/cycle-rent.png' %}" class="image_2">
+                   </div>
+                   <h3 class="decorate_text">Bicycles</h3>
+                   <div class="readmore_bt"><a href="{% url 'individual_category' 'Bicycles' %}">View</a></div>                </div>
+             </div>
+             <div class="col-lg-4 col-sm-12 col-md-4">
+                <div class="box_main" data-aos="fade-up" data-aos-duration="1000">
+                   <div class="vehicle_icon">
+                      <img src="{% static 'images/car-rent-1.png' %}" class="image_1">
+                      <img src="{% static 'images/car-rent.png' %}" class="image_2">
+                   </div>
+                   <h3 class="decorate_text">Car</h3>
+                   <div class="readmore_bt"><a href="{% url 'individual_category' 'Car' %}">View</a></div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  <!-- rentnow section end -->
+
+<!-- How it works -->
+<div class="container" style="margin-bottom: 50px;">
+  <div class="row">
+    <p class="work-title" data-aos="fade-up" data-aos-duration="1000">HOW IT WORKS?</p>
+
+   {% for i in works %}
+   <div class="col-lg-3 col-md-6 col-sm-12" data-aos="fade-up" data-aos-duration="1000">
+      <div class="card working-card" style="width: 18rem;">
+         <h5 class="card-title text-center">{{i.title}}</h5>
+        <img src="{{ i.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{i.desc}}</p>
+        </div>
+      </div>
+    </div>     
+   {% endfor %}
+  </div>
+</div>
+<!-- Works section ends -->
+
+
+
+{% endblock content %}

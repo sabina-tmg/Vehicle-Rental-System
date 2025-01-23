@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Access Denied
+{% endblock title %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<style>
+    .sorry{
+        color: white;
+        font-weight: 600;
+        font-size: xx-large;
+        margin: 50px;
+        display: inline;
+    }
+</style>
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="container" style="margin-top: 20px;">
+    <div class="back_arrow">
+        <a href="{{request.META.HTTP_REFERER}}" style="color: white;"><i class="fa-solid fa-arrow-left"></i> Go back</a>
+    </div>
+    <h1 class="sorry text-center">{% block description %}
+      
+    {% endblock description %}</h1>
+    <img src="https://i.pinimg.com/originals/8e/9a/f7/8e9af7a822e082bc47feb3d2fcb57be1.gif" alt="Sorry" sizes="" srcset="">
+</div>
+<br><br><br><br>
+
+
+
+
+
+
+{% endblock content %}

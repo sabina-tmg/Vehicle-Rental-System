@@ -1,0 +1,53 @@
+{% extends "pages/owner/base_owner.html" %}
+{% load static %}
+
+{% block title %}
+Your Vechicles
+{% endblock title %}
+
+{% block sidebar_content %}
+
+<div class="table-responsive table-styles text-center">
+    {% if rented_vehicles %}
+    <table class="table table-striped table-bordered align-middle caption-top">
+        <caption><h1 style="color: white; font-weight: 600 !important; font-variant: small-caps;">Your Vehicles</h1></caption>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Category</th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in rented_vehicles %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.vehicle_model}}</td>
+                <td>{{i.rent_price}}</td>
+                <td>{{i.category}}</td>
+                <td><img src="{{i.image.url}}" class="register-image" alt=""></td>
+                <td>
+                    <a href="{% url 'vehicle_update' i.id %}">Edit</a>
+                    or
+                    <a href="{% url 'vehicle_delete' i.id %}">Delete</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h1 style="color: white; font-weight: 600 !important; font-variant: small-caps;">You Have Not Registered Your Vehicle Yet!</h1>
+      
+    {% endif %}
+</div>
+
+
+
+
+
+{% endblock sidebar_content %}
